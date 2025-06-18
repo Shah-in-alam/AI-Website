@@ -2,15 +2,17 @@
 import HelloWorld from './components/HelloWorld.vue'
 import Navbar from './components/Navbar.vue'
 import Footer from './components/Footer.vue'
+import ChatButton from './components/ChatButton.vue'
 </script>
 
 <template>
-  <div class="app-layout">
+  <div class="app">
     <Navbar />
     <main class="main-content">
-      <router-view></router-view>
+      <router-view />
     </main>
     <Footer />
+    <ChatButton />
   </div>
 </template>
 
@@ -35,6 +37,7 @@ body {
   background: linear-gradient(270deg, #b0c4de, #87ceeb, #6a5acd, #483d8b);
   background-size: 800% 800%;
   animation: gradientAnimation 15s ease infinite;
+  scroll-behavior: smooth;
 }
 
 #app {
@@ -48,29 +51,23 @@ body {
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
   line-height: 1.6;
-  color: #333;
   min-height: 100vh;
   overflow-x: hidden;
 }
 
-.app-layout {
+.app {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  width: 100%;
-  margin: 0;
-  padding: 0;
 }
 
 .main-content {
-  flex: 1 0 auto;
-  padding-top: 80px;
-  padding-bottom: 0;
-  width: 100%;
-  margin: 0;
-  padding-left: 0;
-  padding-right: 0;
+  flex: 1;
+  padding-top: 70px; /* Same as navbar height */
 }
 
 /* Modern form styles */
@@ -127,5 +124,23 @@ button:disabled {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
+}
+
+/* Add custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 </style>
